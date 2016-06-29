@@ -5,7 +5,7 @@
 ## Introduction
 
 The ciwise POM is a pom project for Apache Maven. It implements the CI Wise Inc. "Organizational POM", 
-by locking down the versions of Maven plugins, use of Spring platform, and other configurations. This POM
+by locking down the versions of Maven plugins, use of the Spring platform, and other configurations. This POM
 also provides plugins for build and reporting that will be used with most projects created by CI Wise Inc.
 or the CI Wise ORG team. This is an important best practice for any organization using Maven because it
 not only takes care of code re-use, it takes care of Maven configuration re-use as well.
@@ -19,7 +19,7 @@ snippet to your new project's pom.xml file..
 <parent>
   <groupId>org.ciwise</groupId>
   <artifactId>ciwise</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>${version}</version>
 </parent>
 ```
 
