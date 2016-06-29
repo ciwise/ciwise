@@ -18,7 +18,7 @@
     
 	<organization>
         <name>The CI Wise Team</name>
-        <url>http://ciwise.org</url>
+        <url>http://ciwise.com/ciwise</url>
     </organization>
    
     <!-- need to choose a version here -->
@@ -29,7 +29,7 @@
     </parent>
 
     <prerequisites>
-        <maven>3.3.0</maven>
+        <maven>3.2</maven>
     </prerequisites>
 
     <scm>
@@ -130,9 +130,9 @@
                                 <rules>
                                     <requireMavenVersion>
                                         <message>
-                                            You are running an older version of Maven. This application requires at least Maven 3.3.
+                                            You are running an older version of Maven. This application requires at least Maven 3.2.
                                         </message>
-                                        <version>[3.3.0,)</version>
+                                        <version>[3.2.0,)</version>
                                     </requireMavenVersion>
                                     <requireJavaVersion>
                                         <message>
