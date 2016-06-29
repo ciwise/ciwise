@@ -23,6 +23,8 @@ snippet to your new project's pom.xml file..
 </parent>
 ```
 
+Find version in GitHub releases.
+
 Once you have established the parent POM, you can reference any plugin without a version and will 
 inherit the latest version automatically from the parent POM. 
 
@@ -89,15 +91,8 @@ mvn release:prepare release:perform
 This does the full release and deployment to the Central Repository.
 
 
-## Principal Development 
+## Current Team 
 - David L. Whitehurst http://www.dlwhitehurst.com
-
-###  Works here derived from these contributors
-- Manfred Moser http://www.simpligility.com 
-- Basil James Whitehouse III https://github.com/basil3whitehouse
-- Slawek Jaranowski https://github.com/slawekjaranowski
-- Karl Heinz Marbaise https://github.com/khmarbaise and http://blog.soebes.de/
-- Raphael Ackermann https://github.com/rtack
 
 ## Known projects using this parent POM
 
