@@ -7,7 +7,7 @@
     <artifactId>ciwise</artifactId>
     <packaging>pom</packaging>
     <name>CIWise</name>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <inceptionYear>2015</inceptionYear>
     <description>
         CIWise is an architectural framework for the development of secure Java applications, web, integration, 
@@ -69,16 +69,27 @@
         </developer>
     </developers>
 
+    <distributionManagement>
+  	<snapshotRepository>
+    	  <id>ossrh</id>
+    	  <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+  	</snapshotRepository>
+  	<repository>
+    	  <id>ossrh</id>
+    	  <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+  	</repository>
+   </distributionManagement>
+    
     <build>
         <defaultGoal>install</defaultGoal>
         <plugins>
-			<plugin>
+	  <plugin>
             	<groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
                 <!--  think Spring is on version 2.6 here (overriding) -->
                 <version>3.0.1</version>
                	<executions>
-					<execution>
+			<execution>
                         <!-- Copy the readme file to the site source files so that a page is generated from it. -->
                         <id>copy-readme</id>
                         <phase>pre-site</phase>
@@ -131,19 +142,6 @@
             </plugin>
             <plugin>
                 <artifactId>maven-site-plugin</artifactId>
-                <dependencies>
-        			<dependency>
-          				<groupId>lt.velykis.maven.skins</groupId>
-          				<artifactId>reflow-velocity-tools</artifactId>
-          				<version>1.1.1</version>
-        			</dependency>
-        			<!-- Reflow skin requires Velocity >= 1.7  -->
-        			<dependency>
-          				<groupId>org.apache.velocity</groupId>
-          				<artifactId>velocity</artifactId>
-          				<version>1.7</version>
-        			</dependency>
-      			</dependencies>
             </plugin>
         </plugins>
         <pluginManagement>
@@ -213,10 +211,19 @@
                 </plugin>
 				<!-- override version of GPG plugin to use new GPG signing features -->
 				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-gpg-plugin</artifactId>
-					<version>1.6</version>
-				</plugin>
+      				<groupId>org.apache.maven.plugins</groupId>
+      				<artifactId>maven-gpg-plugin</artifactId>
+      				<version>1.6</version>
+      				<executions>
+        				<execution>
+          					<id>sign-artifacts</id>
+          					<phase>verify</phase>
+          					<goals>
+            					<goal>sign</goal>
+          					</goals>
+        				</execution>
+      				</executions>
+    			</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-release-plugin</artifactId>
