@@ -7,7 +7,7 @@
     <artifactId>ciwise</artifactId>
     <packaging>pom</packaging>
     <name>CIWise</name>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
     <inceptionYear>2015</inceptionYear>
     <description>
         CIWise is an architectural framework for the development of secure Java applications, web, integration, 
@@ -21,13 +21,6 @@
         <url>http://ciwise.com/${repository.name}</url>
     </organization>
    
-    <!-- need to choose a version here -->
-    <parent>
-        <groupId>io.spring.platform</groupId>
-        <artifactId>platform-bom</artifactId>
-        <version>2.0.5.RELEASE</version>
-    </parent>
-
     <prerequisites>
         <maven>3.2</maven>
     </prerequisites>
@@ -69,21 +62,28 @@
         </developer>
     </developers>
 
-    <distributionManagement>
-  	<snapshotRepository>
-    	  <id>ossrh</id>
-    	  <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-  	</snapshotRepository>
-  	<repository>
-    	  <id>ossrh</id>
-    	  <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-  	</repository>
-   </distributionManagement>
+	<distributionManagement>
+  		<snapshotRepository>
+    		<id>ossrh</id>
+    		<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+  		</snapshotRepository>
+	</distributionManagement>
     
     <build>
         <defaultGoal>install</defaultGoal>
         <plugins>
-	  <plugin>
+        <plugin>
+  			<groupId>org.sonatype.plugins</groupId>
+  			<artifactId>nexus-staging-maven-plugin</artifactId>
+  			<version>1.6.3</version>
+  			<extensions>true</extensions>
+  			<configuration>
+     			<serverId>ossrh</serverId>
+     			<nexusUrl>https://oss.sonatype.org/</nexusUrl>
+     			<autoReleaseAfterClose>true</autoReleaseAfterClose>
+  			</configuration>
+	  	</plugin>
+	  	<plugin>
             	<groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
                 <!--  think Spring is on version 2.6 here (overriding) -->
