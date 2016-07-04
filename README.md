@@ -79,13 +79,7 @@ $ mvn versions:display-property-updates
 Deployment and release are done the usual Maven way..
 
 ```
-$ mvn clean deploy
-```
-
-and 
-
-```
-mvn release:prepare release:perform
+$ mvn clean package gpg:sign deploy
 ```
 
 This does the full release and deployment to the Central Repository.
@@ -100,4 +94,6 @@ This is appropriately licensed to be easily used by commercial and open source
 projects alike. Please let us know if you are using this project and would like 
 to be listed here.
 
+- https://github.com/ciwise/commons-api
+- https://github.com/ciwise/commons-console
 
