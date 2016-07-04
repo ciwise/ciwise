@@ -7,7 +7,7 @@
     <artifactId>ciwise</artifactId>
     <packaging>pom</packaging>
     <name>CIWise</name>
-    <version>1.2.0-SNAPSHOT</version>
+    <version>1.2.0</version>
     <inceptionYear>2015</inceptionYear>
     <description>
         CIWise is an architectural framework for the development of secure 
